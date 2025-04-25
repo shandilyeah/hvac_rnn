@@ -138,7 +138,7 @@ with pico_tab:
     else:
         st.dataframe(df_pico, use_container_width=True, height=400)
         st.subheader("Count Over Time")
-        chart_pico = alt.Chart(df_pico).mark_point(size=60, color='white').encode(
+        chart_pico = alt.Chart(df_pico).mark_point(size=60, color='00f0ff').encode(
             x='Timestamp:T',
             y='Count:Q'
         ).properties(width='container', height=300)
