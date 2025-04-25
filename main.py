@@ -5,18 +5,23 @@ import firebase_admin
 from firebase_admin import credentials, db, get_app
 from streamlit_autorefresh import st_autorefresh
 import altair as alt
-
+import json
+from firebase_admin import credentials
 # --- CONFIGURATION ---
 # Initialize Firebase only once
 try:
     get_app()
 except ValueError:
-    cred = credentials.Certificate(
-        "autonomous-hvac-firebase-adminsdk-fbsvc-613b8f09fb.json"
-    )
+
+
+    
+
+    firebase_cred_dict = st.secrets["firebase"]
+    cred = credentials.Certificate(json.loads(json.dumps(firebase_cred_dict)))
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://autonomous-hvac-default-rtdb.firebaseio.com'
     })
+    
 
 # --- STREAMLIT UI CONFIG ---
 st.set_page_config(
