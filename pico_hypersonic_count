@@ -1,0 +1,138 @@
+import machine
+import utime
+import network
+import urequests
+import ntptime
+
+# Configuration
+WIFI_SSID = "CMU-DEVICE"
+WIFI_PASSWORD = ""
+FIREBASE_SECRET = 'D7UBQ1TtLE70Qhjy6TCRsVkiS3sPz6rEi5kbnsI2'
+FIREBASE_URL = 'https://autonomous-hvac-default-rtdb.firebaseio.com/people_inside.json?auth=' + FIREBASE_SECRET
+
+
+# Connection Functions
+def connect_wifi():
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    wlan.connect(WIFI_SSID, WIFI_PASSWORD)
+    print("Connecting to WiFi...", end='')
+    while not wlan.isconnected():
+        print('.', end='')
+        utime.sleep(1)
+    print("\nConnected! IP:", wlan.ifconfig()[0])
+
+    
+def sync_time():
+    utime.sleep(2)
+    try:
+        ntptime.settime()
+        print("Time synced!")
+    except:
+        print("Failed to sync time.")
+
+def get_timestamp():
+    t_utc = utime.localtime()
+    est_secs = utime.mktime(t_utc) - (4 * 3600)
+    t_est = utime.localtime(est_secs)
+    return "{:04d}-{:02d}-{:02d} {:02d}:{:02d}:{:02d}".format(t_est[0], t_est[1], t_est[2], t_est[3], t_est[4], t_est[5])
+
+# Firebase Upload
+
+def log_to_firebase(count):
+    timestamp = get_timestamp()
+    data = {
+        "count": count,
+        "timestamp": timestamp
+    }
+    print("Logging to Firebase:", data) 
+    try:
+        response = urequests.post(FIREBASE_URL, json=data)
+        print("Log response:", response.text)
+        response.close()
+    except Exception as e:
+        print("Logging failed:", e)
+
+#Set up sensors
+trig_pin1 = machine.Pin(14, machine.Pin.OUT)  
+echo_pin1 = machine.Pin(15, machine.Pin.IN)
+trig_pin2 = machine.Pin(18, machine.Pin.OUT)  
+echo_pin2 = machine.Pin(19, machine.Pin.IN)
+
+# Counters
+people_in = 0
+people_out = 0
+
+# Threshold distance
+threshold = 140
+
+# State variables
+state = "IDLE"
+first_trigger = None
+last_event_time = utime.ticks_ms()
+
+#Time after detection
+cooldown = 2000  
+
+def get_distance(trig, echo):
+    trig.value(1)
+    utime.sleep_us(10)
+    trig.value(0)
+
+    while echo.value() == 0:
+        pulse_start = utime.ticks_us()
+    while echo.value() == 1:
+        pulse_end = utime.ticks_us()
+
+    duration = pulse_end - pulse_start
+    return (duration * 0.0343) / 2
+
+# Main loop
+connect_wifi()
+sync_time()
+last_people_inside = -1
+
+while True:
+    d1 = get_distance(trig_pin1, echo_pin1)  # Inside
+    d2 = get_distance(trig_pin2, echo_pin2)  # Outside
+    now = utime.ticks_ms()
+
+    if state == "IDLE":
+        if d1 < threshold:
+            first_trigger = "S1"
+            state = "TRACKING"
+            last_event_time = now
+        elif d2 < threshold:
+            first_trigger = "S2"
+            state = "TRACKING"
+            last_event_time = now
+
+    elif state == "TRACKING":
+        if utime.ticks_diff(now, last_event_time) > 1000:  # Timeout
+            state = "IDLE"
+            first_trigger = None
+        elif first_trigger == "S1" and d2 < threshold:
+            people_out += 1
+            print("Person Exited")
+            state = "COOLDOWN"
+            last_event_time = now
+
+        elif first_trigger == "S2" and d1 < threshold:
+            people_in += 1
+            print("Person Entered")
+            state = "COOLDOWN"
+            last_event_time = now
+
+
+    elif state == "COOLDOWN":
+        if utime.ticks_diff(now, last_event_time) > cooldown:
+            state = "IDLE"
+            first_trigger = None
+
+    people_inside = people_in - people_out
+    print("Currently Inside:", people_inside)
+    if people_inside != last_people_inside:
+        log_to_firebase(people_inside)     
+        last_people_inside = people_inside
+    
+    utime.sleep(0.08)	
