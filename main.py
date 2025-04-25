@@ -5,24 +5,17 @@ import firebase_admin
 from firebase_admin import credentials, db, get_app
 from streamlit_autorefresh import st_autorefresh
 import altair as alt
-import json
-from firebase_admin import credentials
+
 # --- CONFIGURATION ---
-# Initialize Firebase only once
 try:
     get_app()
 except ValueError:
-
-
-    
-
     firebase_cred_dict = dict(st.secrets["firebase"])
     cred = credentials.Certificate(firebase_cred_dict)
     if not firebase_admin._apps:
         firebase_admin.initialize_app(cred, {
             'databaseURL': 'https://autonomous-hvac-default-rtdb.firebaseio.com'
         })
-    
 
 # --- STREAMLIT UI CONFIG ---
 st.set_page_config(
@@ -35,7 +28,6 @@ st.title("📊 HVAC Real-Time Dashboard")
 auto_refresh = st_autorefresh(interval=1000, key="datarefresh")
 
 # --- DATA LOADERS ---
-
 def load_yolo_depth():
     ref = db.reference('/yolo-depth')
     raw = ref.get() or {}
@@ -53,7 +45,6 @@ def load_yolo_depth():
             'Fake Count': entry.get('Fake count') or entry.get('fake_count')
         })
     return pd.DataFrame(rows).sort_values('Timestamp', ascending=False)
-
 
 def load_people_counts():
     ref = db.reference('/people_counts')
@@ -75,8 +66,29 @@ def load_people_counts():
         })
     return pd.DataFrame(rows).sort_values('Timestamp', ascending=False)
 
+def load_pico_counts():
+    ref = db.reference('/pico_counts')
+    raw = ref.get() or {}
+    rows = []
+    for key, entry in raw.items():
+        ts = entry.get("timestamp")
+        try:
+            ts_dt = datetime.fromtimestamp(float(ts))
+        except Exception:
+            ts_dt = datetime.fromisoformat(ts) if isinstance(ts, str) else None
+        rows.append({
+            'Record ID': key,
+            'Timestamp': ts_dt,
+            'Pico Count': entry.get('count')
+        })
+    return pd.DataFrame(rows).sort_values('Timestamp', ascending=False)
+
 # --- MAIN UI TABS ---
-yolo_tab, people_tab = st.tabs(["YOLO Depth", "YOLO RGB"])
+yolo_tab, people_tab, pico_tab = st.tabs([
+    "YOLO Depth",
+    "YOLO RGB",
+    "Pico Count"
+])
 
 with yolo_tab:
     st.subheader("YOLO Depth Stream")
@@ -85,7 +97,6 @@ with yolo_tab:
         st.write("No data under `/yolo-depth`.")
     else:
         st.dataframe(df_yolo, use_container_width=True, height=400)
-        # Plot only points, no connecting lines
         melt1 = df_yolo.reset_index(drop=True).melt(
             id_vars=['Timestamp'],
             value_vars=['People Count', 'Fake Count'],
@@ -104,9 +115,7 @@ with people_tab:
     if df_pc.empty:
         st.write("No data under `/people_counts`.")
     else:
-        # Full table
         st.dataframe(df_pc, use_container_width=True, height=400)
-        # Scatter plot for Count
         st.subheader("Count Over Time")
         chart_count = alt.Chart(df_pc).mark_point(size=60, color='orange').encode(
             x='Timestamp:T',
@@ -114,13 +123,26 @@ with people_tab:
         ).properties(width='container', height=300)
         st.altair_chart(chart_count, use_container_width=True)
 
-        # Separate scatter plot for Average Confidence
         st.subheader("Average Confidence Over Time")
         chart_conf = alt.Chart(df_pc).mark_point(size=60, color='green').encode(
             x='Timestamp:T',
             y='Average Confidence:Q'
         ).properties(width='container', height=300)
         st.altair_chart(chart_conf, use_container_width=True)
+
+with pico_tab:
+    st.subheader("Pico Count Stream")
+    df_pico = load_pico_counts()
+    if df_pico.empty:
+        st.write("No data under `/pico_counts`.")
+    else:
+        st.dataframe(df_pico, use_container_width=True, height=400)
+        st.subheader("Pico Count Over Time")
+        chart_pico = alt.Chart(df_pico).mark_point(size=60, color='blue').encode(
+            x='Timestamp:T',
+            y='Pico Count:Q'
+        ).properties(width='container', height=300)
+        st.altair_chart(chart_pico, use_container_width=True)
 
 # Manual refresh
 if st.button("🔄 Refresh Now"):
