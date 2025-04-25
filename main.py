@@ -141,7 +141,7 @@ with yolo_tab:
             y='Value:Q',
             color=alt.Color('Series:N', scale=alt.Scale(
                 domain=['People Count', 'Fake Count'],
-                range=['#ADD8E6', 'red']  # Light blue for People Count, red for Fake Count
+                range=['#00FF00', 'red']
             ))
         ).properties(width='container', height=400)
         st.altair_chart(chart1, use_container_width=True)
