@@ -76,7 +76,7 @@ def load_people_counts():
     return pd.DataFrame(rows).sort_values('Timestamp', ascending=False)
 
 # --- MAIN UI TABS ---
-yolo_tab, people_tab = st.tabs(["YOLO Depth", "People Counts"])
+yolo_tab, people_tab = st.tabs(["YOLO Depth", "YOLO RGB"])
 
 with yolo_tab:
     st.subheader("YOLO Depth Stream")
