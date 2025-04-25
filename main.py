@@ -20,7 +20,7 @@ except ValueError:
 
 # --- STREAMLIT UI CONFIG ---
 st.set_page_config(
-    page_title="HVAC Dashboard",
+    page_title="Occupancy Dashboard",
     layout="wide"
 )
 st.title("Real-Time Occupancy Dashboard")
