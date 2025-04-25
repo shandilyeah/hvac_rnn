@@ -16,8 +16,9 @@ except ValueError:
 
     
 
-    firebase_cred_dict = st.secrets["firebase"]
-    cred = credentials.Certificate(json.loads(json.dumps(firebase_cred_dict)))
+    firebase_cred_dict = dict(st.secrets["firebase"])
+    cred = credentials.Certificate(firebase_cred_dict)
+    if not firebase_admin._apps:
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://autonomous-hvac-default-rtdb.firebaseio.com'
     })
