@@ -88,7 +88,7 @@ def load_pico_count():
     return pd.DataFrame(rows).sort_values('Timestamp', ascending=False)
 
 # --- MAIN UI TABS ---
-yolo_tab, people_tab, pico_tab = st.tabs(["YOLO Depth", "YOLO RGB", "Pico Count"])
+yolo_tab, people_tab, pico_tab = st.tabs(["YOLO Depth", "YOLO RGB", "Pico Hypersonic sensors"])
 
 with yolo_tab:
     st.subheader("YOLO Depth Stream")
