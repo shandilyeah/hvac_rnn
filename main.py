@@ -139,7 +139,10 @@ with yolo_tab:
         chart1 = alt.Chart(melt1).mark_point(size=60).encode(
             x='Timestamp:T',
             y='Value:Q',
-            color='Series:N'
+            color=alt.Color('Series:N', scale=alt.Scale(
+                domain=['People Count', 'Fake Count'],
+                range=['blue', 'red']
+            ))
         ).properties(width='container', height=400)
         st.altair_chart(chart1, use_container_width=True)
 
