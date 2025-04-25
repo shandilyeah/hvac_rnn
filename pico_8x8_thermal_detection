@@ -1,0 +1,163 @@
+from micropython import const
+from machine import I2C, Pin
+import time
+import urequests
+
+# Firebase URL
+FIREBASE_URL = 'https://project-6173518174868616254-default-rtdb.firebaseio.com/'
+
+# Possible register values
+_NORMAL_MODE = const(0x00)
+_SLEEP_MODE = const(0x10)
+_STAND_BY_60 = const(0x20)
+_STAND_BY_10 = const(0x21)
+_FLAG_RESET = const(0x30)
+_INITIAL_RESET = const(0x3F)
+_FPS_10 = const(0x00)
+_FPS_1 = const(0x01)
+_INT_DISABLED = const(0x00)
+_INT_ENABLED = const(0x01)
+_DIFFERENCE = const(0x00)
+_ABSOLUTE_VALUE = const(0x01)
+_INT_OFFSET = const(0x010)
+_PIXEL_OFFSET = const(0x80)
+_PIXEL_ARRAY_WIDTH = const(8)
+_PIXEL_ARRAY_HEIGHT = const(8)
+_THERMISTOR_CONVERSION = .0625
+
+# Registers
+_PCTL = const(0)
+_RST = const(1)
+_FPS = const(2)
+_INTEN = const(3)
+_TTHL = const(0x0e)
+_TTHH = const(0x0f)
+_MAMOD = const(0x07)
+_MAMOD1 = const(0x15)
+
+class AMG88XX:
+    @staticmethod
+    def _validrc(row, col):
+        if min(row, col) >= 0 and row < _PIXEL_ARRAY_HEIGHT and col < _PIXEL_ARRAY_WIDTH:
+            return
+        raise ValueError('Invalid row {} or col {}'.format(row, col))
+
+    def __init__(self, i2c, addr=0x69):
+        if addr not in i2c.scan():
+            raise RuntimeError('AMG8833 not found at address 0x{:02x}'.format(addr))
+        self._i2c = i2c
+        self._address = addr
+        self._scale = 2
+        self._mamod = False
+        self._buf = bytearray(_PIXEL_ARRAY_HEIGHT * _PIXEL_ARRAY_WIDTH * 2)
+        self._buf2 = bytearray(2)
+
+        # enter normal mode
+        self._write(_PCTL, _NORMAL_MODE)
+
+        # software reset
+        self._write(_RST, _INITIAL_RESET)
+
+        # disable interrupts by default
+        self._write(_INTEN, 0)
+
+        # set to 10 FPS
+        self._write(_FPS, _FPS_10)
+
+    def _read(self, memaddr, buf=bytearray(1)):
+        self._i2c.readfrom_mem_into(self._address, memaddr, buf)
+        return buf[0]
+
+    def _write(self, memaddr, data, buf=bytearray(1)):
+        buf[0] = data
+        self._i2c.writeto_mem(self._address, memaddr, buf)
+
+    def _readn(self, buf, memaddr):
+        self._i2c.readfrom_mem_into(self._address, memaddr, buf)
+        return buf
+
+    def temperature(self):
+        self._readn(self._buf2, _TTHL)
+        v = ((self._buf2[1] << 8) | self._buf2[0]) & 0xfff
+        if v & 0x800:
+            v = -(v & 0x7ff)
+        return float(v) * _THERMISTOR_CONVERSION
+
+    def hi_res(self, v=None):
+        if v is not None:
+            self._scale = 0 if v else 2
+        return self._scale == 0
+
+    def ma_mode(self, v=None):
+        if v is not None:
+            self._mamod = bool(v)
+            v = 0x20 if v else 0
+            self._write(_MAMOD1, 0x50)
+            self._write(_MAMOD1, 0x45)
+            self._write(_MAMOD1, 0x57)
+            self._write(_MAMOD, v)
+            self._write(_MAMOD1, 0)
+        return self._mamod
+
+    def __getitem__(self, index):
+        row, col = index
+        self._validrc(row, col)
+        buf_idx = (row * _PIXEL_ARRAY_HEIGHT + col) * 2
+        raw = ((self._buf[buf_idx + 1] << 8) | self._buf[buf_idx]) & 0xfff
+        if raw & 0x800:
+            raw -= 0x1000  # Sign extend
+        return raw >> self._scale  # Pixel temp conversion == 0.25
+
+    def refresh(self, _=None):
+        i2c = self._i2c
+        memaddr = _PIXEL_OFFSET
+        i2c.readfrom_mem_into(self._address, memaddr, self._buf)
+
+# Initialize I2C
+i2c = I2C(0, scl=Pin(1), sda=Pin(0), freq=400000)
+
+# Initialize the AMG8833 sensor
+sensor = AMG88XX(i2c)
+
+# Set a temperature threshold for detecting a person (in Celsius)
+TEMP_THRESHOLD = 25  # Threshold temperature in Celsius to detect a person
+PERSON_DETECTED_THRESHOLD = 5  # Number of pixels exceeding the threshold to consider a person present
+
+def is_person_present():
+    warm_pixel_count = 0
+    for row in range(8):  # Iterate through the 8x8 pixel grid
+        for col in range(8):
+            temp = sensor[row, col]  # Get the temperature for the current pixel
+            if temp > TEMP_THRESHOLD:
+                warm_pixel_count += 1
+
+    # If the number of warm pixels exceeds the threshold, a person is detected
+    if warm_pixel_count >= PERSON_DETECTED_THRESHOLD:
+        return True
+    else:
+        return False
+
+# Send to Firebase with timestamp
+def send_to_firebase(path, value):
+    timestamp = int(time.time())  # Get the current timestamp (seconds since epoch)
+    data = { "value": value, "timestamp": timestamp }
+    url = f"{FIREBASE_URL}{path}.json"
+    
+    try:
+        response = urequests.post(url, json=data)
+        print(f"Sent to Firebase -> {path}: {value} | Timestamp: {timestamp} | Status:", response.status_code)
+        response.close()
+    except Exception as e:
+        print("Error sending to Firebase:", e)
+
+# Main loop to check for person presence and send to Firebase
+while True:
+    sensor.refresh()  # Refresh the sensor to get the latest frame of data
+    if is_person_present():
+        print(1)  # Print 1 if person is detected
+        send_to_firebase("person_detection", 1)  # Send 1 (person detected) to Firebase
+    else:
+        print(0)  # Print 0 if no person is detected
+        send_to_firebase("person_detection", 0)  # Send 0 (no person detected) to Firebase
+
+    time.sleep(1)  # Wait for 1 second before refreshing again
