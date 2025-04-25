@@ -23,7 +23,7 @@ st.set_page_config(
     page_title="HVAC Dashboard",
     layout="wide"
 )
-st.title("📊 HVAC Real-Time Dashboard")
+st.title("Real-Time Occupancy Dashboard")
 
 # Auto-refresh every 1 second
 auto_refresh = st_autorefresh(interval=1000, key="datarefresh")
