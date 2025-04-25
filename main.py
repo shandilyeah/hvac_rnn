@@ -129,6 +129,8 @@ with yolo_tab:
         st.write("No data under `/yolo-depth`.")
     else:
         st.dataframe(df_yolo, use_container_width=True, height=400)
+        # Combined People and Fake counts
+        st.subheader("People vs Fake Count Over Time")
         melt1 = df_yolo.reset_index(drop=True).melt(
             id_vars=['Timestamp'],
             value_vars=['People Count', 'Fake Count'],
@@ -140,6 +142,14 @@ with yolo_tab:
             color='Series:N'
         ).properties(width='container', height=400)
         st.altair_chart(chart1, use_container_width=True)
+
+        # Separate Fake Count chart
+        st.subheader("Fake Count Over Time")
+        chart_fake = alt.Chart(df_yolo).mark_point(size=60, color='red').encode(
+            x='Timestamp:T',
+            y='Fake Count:Q'
+        ).properties(width='container', height=300)
+        st.altair_chart(chart_fake, use_container_width=True)
 
 with people_tab:
     st.subheader("People Counts Stream")
