@@ -35,20 +35,30 @@ def load_yolo_depth():
     rows = []
     for key, entry in raw.items():
         ts = entry.get("timestamp")
-        try:
-            ts_dt = datetime.fromtimestamp(float(ts))
-        except Exception:
-            ts_dt = datetime.fromisoformat(ts) if isinstance(ts, str) else None
+        ts_dt = None
+        if isinstance(ts, str):
+            try:
+                ts_dt = datetime.fromisoformat(ts)
+            except ValueError:
+                pass
+        else:
+            try:
+                ts_dt = datetime.fromtimestamp(float(ts))
+            except Exception:
+                pass
         # Correct for the one-hour offset
         if ts_dt:
-            ts_dt = ts_dt - timedelta(hours=1)
+            ts_dt -= timedelta(hours=1)
         rows.append({
             'Record ID': key,
             'Timestamp': ts_dt,
             'People Count': entry.get('People count') or entry.get('count'),
             'Fake Count': entry.get('Fake count') or entry.get('fake_count')
         })
-    return pd.DataFrame(rows).sort_values('Timestamp', ascending=False)
+    df = pd.DataFrame(rows)
+    if 'Timestamp' in df.columns:
+        df = df.sort_values('Timestamp', ascending=False)
+    return df
 
 
 def load_people_counts():
@@ -57,10 +67,17 @@ def load_people_counts():
     rows = []
     for key, entry in raw.items():
         ts = entry.get("timestamp")
-        try:
-            ts_dt = datetime.fromtimestamp(float(ts))
-        except Exception:
-            ts_dt = datetime.fromisoformat(ts) if isinstance(ts, str) else None
+        ts_dt = None
+        if isinstance(ts, str):
+            try:
+                ts_dt = datetime.fromisoformat(ts)
+            except ValueError:
+                pass
+        else:
+            try:
+                ts_dt = datetime.fromtimestamp(float(ts))
+            except Exception:
+                pass
         dets = entry.get('detections', {})
         rows.append({
             'Record ID': key,
@@ -69,7 +86,10 @@ def load_people_counts():
             'Average Confidence': entry.get('average_confidence'),
             'Detections': len(dets)
         })
-    return pd.DataFrame(rows).sort_values('Timestamp', ascending=False)
+    df = pd.DataFrame(rows)
+    if 'Timestamp' in df.columns:
+        df = df.sort_values('Timestamp', ascending=False)
+    return df
 
 
 def load_pico_count():
@@ -78,16 +98,26 @@ def load_pico_count():
     rows = []
     for key, entry in raw.items():
         ts = entry.get("timestamp")
-        try:
-            ts_dt = datetime.fromtimestamp(float(ts))
-        except Exception:
-            ts_dt = datetime.fromisoformat(ts) if isinstance(ts, str) else None
+        ts_dt = None
+        if isinstance(ts, str):
+            try:
+                ts_dt = datetime.fromisoformat(ts)
+            except ValueError:
+                pass
+        else:
+            try:
+                ts_dt = datetime.fromtimestamp(float(ts))
+            except Exception:
+                pass
         rows.append({
             'Record ID': key,
             'Timestamp': ts_dt,
             'Count': entry.get('count')
         })
-    return pd.DataFrame(rows).sort_values('Timestamp', ascending=False)
+    df = pd.DataFrame(rows)
+    if 'Timestamp' in df.columns:
+        df = df.sort_values('Timestamp', ascending=False)
+    return df
 
 # --- MAIN UI TABS ---
 yolo_tab, people_tab, pico_tab = st.tabs(["YOLO Depth", "YOLO RGB", "Pico Hypersonic sensors"])
