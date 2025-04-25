@@ -138,7 +138,7 @@ with yolo_tab:
         )
         chart1 = alt.Chart(melt1).mark_point(size=60).encode(
             x='Timestamp:T',
-            y='Value:Q',
+            y=alt.Y('Value:Q', axis=alt.Axis(format='d')),
             color=alt.Color('Series:N', scale=alt.Scale(
                 domain=['People Count', 'Fake Count'],
                 range=['#00FF00', 'red']
@@ -150,7 +150,7 @@ with yolo_tab:
         st.subheader("Fake Count Over Time")
         chart_fake = alt.Chart(df_yolo).mark_point(size=60, color='red').encode(
             x='Timestamp:T',
-            y='Fake Count:Q'
+            y=alt.Y('Fake Count:Q', axis=alt.Axis(format='d'))
         ).properties(width='container', height=300)
         st.altair_chart(chart_fake, use_container_width=True)
 
@@ -164,7 +164,7 @@ with people_tab:
         st.subheader("Count Over Time")
         chart_count = alt.Chart(df_pc).mark_point(size=60, color='orange').encode(
             x='Timestamp:T',
-            y='Count:Q'
+            y=alt.Y('Count:Q', axis=alt.Axis(format='d'))
         ).properties(width='container', height=300)
         st.altair_chart(chart_count, use_container_width=True)
 
