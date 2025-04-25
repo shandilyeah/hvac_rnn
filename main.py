@@ -7,6 +7,7 @@ from streamlit_autorefresh import st_autorefresh
 import altair as alt
 
 # --- CONFIGURATION ---
+# Initialize Firebase only once
 try:
     get_app()
 except ValueError:
@@ -46,6 +47,7 @@ def load_yolo_depth():
         })
     return pd.DataFrame(rows).sort_values('Timestamp', ascending=False)
 
+
 def load_people_counts():
     ref = db.reference('/people_counts')
     raw = ref.get() or {}
@@ -66,29 +68,27 @@ def load_people_counts():
         })
     return pd.DataFrame(rows).sort_values('Timestamp', ascending=False)
 
-def load_pico_counts():
-    ref = db.reference('/pico_counts')
+
+def load_pico_count():
+    ref = db.reference('/people_inside')
     raw = ref.get() or {}
     rows = []
     for key, entry in raw.items():
         ts = entry.get("timestamp")
         try:
-            ts_dt = datetime.fromtimestamp(float(ts))
+            # ISO format timestamp
+            ts_dt = datetime.fromisoformat(ts) if isinstance(ts, str) else datetime.fromtimestamp(float(ts))
         except Exception:
-            ts_dt = datetime.fromisoformat(ts) if isinstance(ts, str) else None
+            ts_dt = None
         rows.append({
             'Record ID': key,
             'Timestamp': ts_dt,
-            'Pico Count': entry.get('count')
+            'Count': entry.get('count')
         })
     return pd.DataFrame(rows).sort_values('Timestamp', ascending=False)
 
 # --- MAIN UI TABS ---
-yolo_tab, people_tab, pico_tab = st.tabs([
-    "YOLO Depth",
-    "YOLO RGB",
-    "Pico Count"
-])
+yolo_tab, people_tab, pico_tab = st.tabs(["YOLO Depth", "YOLO RGB", "Pico Count"])
 
 with yolo_tab:
     st.subheader("YOLO Depth Stream")
@@ -132,15 +132,15 @@ with people_tab:
 
 with pico_tab:
     st.subheader("Pico Count Stream")
-    df_pico = load_pico_counts()
+    df_pico = load_pico_count()
     if df_pico.empty:
-        st.write("No data under `/pico_counts`.")
+        st.write("No data under `/people_inside`.")
     else:
         st.dataframe(df_pico, use_container_width=True, height=400)
-        st.subheader("Pico Count Over Time")
+        st.subheader("Count Over Time")
         chart_pico = alt.Chart(df_pico).mark_point(size=60, color='blue').encode(
             x='Timestamp:T',
-            y='Pico Count:Q'
+            y='Count:Q'
         ).properties(width='container', height=300)
         st.altair_chart(chart_pico, use_container_width=True)
 
