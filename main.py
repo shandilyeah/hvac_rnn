@@ -136,18 +136,28 @@ with yolo_tab:
             value_vars=['People Count', 'Fake Count'],
             var_name='Series', value_name='Value'
         )
-        chart1 = alt.Chart(melt1).mark_point(size=60).encode(
-            x=alt.X('Timestamp:T', 
-                   scale=alt.Scale(nice=True),
-                   axis=alt.Axis(title='Time', format='%H:%M:%S', labelAngle=-45)),
-            y=alt.Y('Value:Q',
-                   axis=alt.Axis(title='Count', format='d')),  # 'd' format for integers
-            color=alt.Color('Series:N', scale=alt.Scale(
-                domain=['People Count', 'Fake Count'],
-                range=['#00FF00', 'red']
-            ))
-        ).properties(width='container', height=400)
-        st.altair_chart(chart1, use_container_width=True)
+        
+        if not melt1.empty:
+            # Get min and max values for better y-axis scale
+            y_min = melt1['Value'].min()
+            y_max = melt1['Value'].max()
+            
+            # Calculate a sensible step for ticks based on the range
+            step = max(1, int((y_max - y_min) / 4))
+            
+            chart1 = alt.Chart(melt1).mark_point(size=60).encode(
+                x=alt.X('Timestamp:T', 
+                       scale=alt.Scale(nice=True),
+                       axis=alt.Axis(title='Time', format='%H:%M:%S', labelAngle=-45)),
+                y=alt.Y('Value:Q',
+                       scale=alt.Scale(domain=[y_min, y_max], nice=False),
+                       axis=alt.Axis(title='Count', format='d', values=list(range(int(y_min), int(y_max) + 1, step)))),
+                color=alt.Color('Series:N', scale=alt.Scale(
+                    domain=['People Count', 'Fake Count'],
+                    range=['#00FF00', 'red']
+                ))
+            ).properties(width='container', height=400)
+            st.altair_chart(chart1, use_container_width=True)
 
         # Separate Fake Count chart
         st.subheader("Fake Count Over Time")
@@ -156,12 +166,20 @@ with yolo_tab:
             valid_data = df_yolo.dropna(subset=['Timestamp', 'Fake Count'])
             
             if not valid_data.empty:
+                # Get min and max values for better y-axis scale
+                y_min = valid_data['Fake Count'].min()
+                y_max = valid_data['Fake Count'].max()
+                
+                # Calculate a sensible step for ticks based on the range
+                step = max(1, int((y_max - y_min) / 4))
+                
                 chart_fake = alt.Chart(valid_data).mark_point(size=60, color='red').encode(
                     x=alt.X('Timestamp:T', 
                            scale=alt.Scale(nice=True),
                            axis=alt.Axis(title='Time', format='%H:%M:%S', labelAngle=-45)),
                     y=alt.Y('Fake Count:Q', 
-                           axis=alt.Axis(title='Fake Count', format='d'))  # 'd' format for integers
+                           scale=alt.Scale(domain=[y_min, y_max], nice=False),
+                           axis=alt.Axis(title='Fake Count', format='d', values=list(range(int(y_min), int(y_max) + 1, step))))
                 ).properties(width='container', height=300)
                 st.altair_chart(chart_fake, use_container_width=True)
             else:
@@ -177,14 +195,24 @@ with people_tab:
     else:
         st.dataframe(df_pc, use_container_width=True, height=400)
         st.subheader("Count Over Time")
-        chart_count = alt.Chart(df_pc).mark_point(size=60, color='orange').encode(
-            x=alt.X('Timestamp:T', 
-                   scale=alt.Scale(nice=True),
-                   axis=alt.Axis(title='Time', format='%H:%M:%S', labelAngle=-45)),
-            y=alt.Y('Count:Q',
-                   axis=alt.Axis(title='Count', format='d'))  # 'd' format for integers
-        ).properties(width='container', height=300)
-        st.altair_chart(chart_count, use_container_width=True)
+        
+        if not df_pc.empty and 'Count' in df_pc.columns:
+            # Get min and max values for better y-axis scale
+            y_min = df_pc['Count'].min()
+            y_max = df_pc['Count'].max()
+            
+            # Calculate a sensible step for ticks based on the range
+            step = max(1, int((y_max - y_min) / 4))
+            
+            chart_count = alt.Chart(df_pc).mark_point(size=60, color='orange').encode(
+                x=alt.X('Timestamp:T', 
+                       scale=alt.Scale(nice=True),
+                       axis=alt.Axis(title='Time', format='%H:%M:%S', labelAngle=-45)),
+                y=alt.Y('Count:Q',
+                       scale=alt.Scale(domain=[y_min, y_max], nice=False),
+                       axis=alt.Axis(title='Count', format='d', values=list(range(int(y_min), int(y_max) + 1, step))))
+            ).properties(width='container', height=300)
+            st.altair_chart(chart_count, use_container_width=True)
 
         st.subheader("Average Confidence Over Time")
         chart_conf = alt.Chart(df_pc).mark_point(size=60, color='green').encode(
@@ -204,14 +232,24 @@ with pico_tab:
     else:
         st.dataframe(df_pico, use_container_width=True, height=400)
         st.subheader("Count Over Time")
-        chart_pico = alt.Chart(df_pico).mark_point(size=60, color="green").encode(
-            x=alt.X('Timestamp:T', 
-                   scale=alt.Scale(nice=True),
-                   axis=alt.Axis(title='Time', format='%H:%M:%S', labelAngle=-45)),
-            y=alt.Y('Count:Q',
-                   axis=alt.Axis(title='Count', format='d'))  # 'd' format for integers
-        ).properties(width='container', height=300)
-        st.altair_chart(chart_pico, use_container_width=True)
+        
+        if not df_pico.empty and 'Count' in df_pico.columns:
+            # Get min and max values for better y-axis scale
+            y_min = df_pico['Count'].min()
+            y_max = df_pico['Count'].max()
+            
+            # Calculate a sensible step for ticks based on the range
+            step = max(1, int((y_max - y_min) / 4))
+            
+            chart_pico = alt.Chart(df_pico).mark_point(size=60, color="green").encode(
+                x=alt.X('Timestamp:T', 
+                       scale=alt.Scale(nice=True),
+                       axis=alt.Axis(title='Time', format='%H:%M:%S', labelAngle=-45)),
+                y=alt.Y('Count:Q',
+                       scale=alt.Scale(domain=[y_min, y_max], nice=False),
+                       axis=alt.Axis(title='Count', format='d', values=list(range(int(y_min), int(y_max) + 1, step))))
+            ).properties(width='container', height=300)
+            st.altair_chart(chart_pico, use_container_width=True)
 
 # Manual refresh
 if st.button("🔄 Refresh Now"):
