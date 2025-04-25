@@ -136,11 +136,9 @@ with yolo_tab:
             value_vars=['People Count', 'Fake Count'],
             var_name='Series', value_name='Value'
         )
-        # Determine dynamic Y scale
-        max_val = int(melt1['Value'].max() or 0) + 1
         chart1 = alt.Chart(melt1).mark_point(size=60).encode(
             x='Timestamp:T',
-            y=alt.Y('Value:Q', scale=alt.Scale(domain=[0, max_val]), axis=alt.Axis(format='d')),
+            y='Value:Q',
             color=alt.Color('Series:N', scale=alt.Scale(
                 domain=['People Count', 'Fake Count'],
                 range=['#00FF00', 'red']
@@ -150,10 +148,9 @@ with yolo_tab:
 
         # Separate Fake Count chart
         st.subheader("Fake Count Over Time")
-        max_fake = int(df_yolo['Fake Count'].max() or 0) + 1
         chart_fake = alt.Chart(df_yolo).mark_point(size=60, color='red').encode(
             x='Timestamp:T',
-            y=alt.Y('Fake Count:Q', scale=alt.Scale(domain=[0, max_fake]), axis=alt.Axis(format='d'))
+            y='Fake Count:Q'
         ).properties(width='container', height=300)
         st.altair_chart(chart_fake, use_container_width=True)
 
@@ -165,10 +162,9 @@ with people_tab:
     else:
         st.dataframe(df_pc, use_container_width=True, height=400)
         st.subheader("Count Over Time")
-        max_cnt = int(df_pc['Count'].max() or 0) + 1
         chart_count = alt.Chart(df_pc).mark_point(size=60, color='orange').encode(
             x='Timestamp:T',
-            y=alt.Y('Count:Q', scale=alt.Scale(domain=[0, max_cnt]), axis=alt.Axis(format='d'))
+            y='Count:Q'
         ).properties(width='container', height=300)
         st.altair_chart(chart_count, use_container_width=True)
 
@@ -187,10 +183,9 @@ with pico_tab:
     else:
         st.dataframe(df_pico, use_container_width=True, height=400)
         st.subheader("Count Over Time")
-        max_pico = int(df_pico['Count'].max() or 0) + 1
         chart_pico = alt.Chart(df_pico).mark_point(size=60, color="green").encode(
             x='Timestamp:T',
-            y=alt.Y('Count:Q', scale=alt.Scale(domain=[0, max_pico]), axis=alt.Axis(format='d'))
+            y='Count:Q'
         ).properties(width='container', height=300)
         st.altair_chart(chart_pico, use_container_width=True)
 
