@@ -123,7 +123,7 @@ def load_pico_count():
 yolo_tab, people_tab, pico_tab = st.tabs(["YOLO Depth", "YOLO RGB", "Pico Hypersonic sensors"])
 
 with yolo_tab:
-    st.subheader("YOLO Depth Stream")
+    st.header("YOLO Depth Stream")
     df_yolo = load_yolo_depth()
     if df_yolo.empty:
         st.write("No data under `/yolo-depth`.")
@@ -188,7 +188,7 @@ with yolo_tab:
             st.write("Missing required columns for Fake Count chart.")
 
 with people_tab:
-    st.subheader("People Counts Stream")
+    st.header("YOLO RGB Stream")
     df_pc = load_people_counts()
     if df_pc.empty:
         st.write("No data under `/people_counts`.")
@@ -225,7 +225,7 @@ with people_tab:
         st.altair_chart(chart_conf, use_container_width=True)
 
 with pico_tab:
-    st.subheader("Pico Count Stream")
+    st.header("Hypersonic Sensor Stream")
     df_pico = load_pico_count()
     if df_pico.empty:
         st.write("No data under `/people_inside`.")
