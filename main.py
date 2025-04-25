@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from datetime import datetime, timezone
+from datetime import datetime
 import firebase_admin
 from firebase_admin import credentials, db, get_app
 from streamlit_autorefresh import st_autorefresh
@@ -35,12 +35,10 @@ def load_yolo_depth():
     rows = []
     for key, entry in raw.items():
         ts = entry.get("timestamp")
-        # if timestamp is stored as ISO string, parse directly
-        if isinstance(ts, str):
-            ts_dt = datetime.fromisoformat(ts)
-        else:
-            # treat numeric epoch seconds as UTC, then convert to local
-            ts_dt = datetime.fromtimestamp(float(ts), tz=timezone.utc).astimezone()
+        try:
+            ts_dt = datetime.fromtimestamp(float(ts))
+        except Exception:
+            ts_dt = datetime.fromisoformat(ts) if isinstance(ts, str) else None
         rows.append({
             'Record ID': key,
             'Timestamp': ts_dt,
@@ -78,6 +76,7 @@ def load_pico_count():
     for key, entry in raw.items():
         ts = entry.get("timestamp")
         try:
+            # ISO format timestamp
             ts_dt = datetime.fromisoformat(ts) if isinstance(ts, str) else datetime.fromtimestamp(float(ts))
         except Exception:
             ts_dt = None
@@ -89,7 +88,7 @@ def load_pico_count():
     return pd.DataFrame(rows).sort_values('Timestamp', ascending=False)
 
 # --- MAIN UI TABS ---
-yolo_tab, people_tab, pico_tab = st.tabs(["YOLO Depth", "YOLO RGB", "Pico Count"])
+yolo_tab, people_tab, pico_tab = st.tabs(["YOLO Depth", "YOLO RGB", "Pico Hypersonic sensors"])
 
 with yolo_tab:
     st.subheader("YOLO Depth Stream")
@@ -139,7 +138,7 @@ with pico_tab:
     else:
         st.dataframe(df_pico, use_container_width=True, height=400)
         st.subheader("Count Over Time")
-        chart_pico = alt.Chart(df_pico).mark_point(size=60, color='blue').encode(
+        chart_pico = alt.Chart(df_pico).mark_point(size=60, color='white').encode(
             x='Timestamp:T',
             y='Count:Q'
         ).properties(width='container', height=300)
