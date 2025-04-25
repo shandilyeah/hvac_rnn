@@ -1,2 +1,4 @@
 firebase-admin
 streamlit
+streamlit_autorefresh
+altair
