@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 import firebase_admin
 from firebase_admin import credentials, db, get_app
 from streamlit_autorefresh import st_autorefresh
@@ -39,6 +39,9 @@ def load_yolo_depth():
             ts_dt = datetime.fromtimestamp(float(ts))
         except Exception:
             ts_dt = datetime.fromisoformat(ts) if isinstance(ts, str) else None
+        # Correct for the one-hour offset
+        if ts_dt:
+            ts_dt = ts_dt - timedelta(hours=1)
         rows.append({
             'Record ID': key,
             'Timestamp': ts_dt,
@@ -76,10 +79,9 @@ def load_pico_count():
     for key, entry in raw.items():
         ts = entry.get("timestamp")
         try:
-            # ISO format timestamp
-            ts_dt = datetime.fromisoformat(ts) if isinstance(ts, str) else datetime.fromtimestamp(float(ts))
+            ts_dt = datetime.fromtimestamp(float(ts))
         except Exception:
-            ts_dt = None
+            ts_dt = datetime.fromisoformat(ts) if isinstance(ts, str) else None
         rows.append({
             'Record ID': key,
             'Timestamp': ts_dt,
