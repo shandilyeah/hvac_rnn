@@ -2,3 +2,6 @@ firebase-admin
 streamlit
 streamlit_autorefresh
 altair
+torch
+numpy
+pandas
