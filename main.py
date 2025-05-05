@@ -90,7 +90,6 @@ st.title("Real-Time Occupancy Dashboard")
 
 # Define the configuration for the model
 config = {
-    'activations': 'GELU',
     'learning_rate': 0.001,
     'max_lr': 0.006,
     'pct_start': 0.1,
@@ -123,9 +122,6 @@ def load_yolo_depth():
                 ts_dt = datetime.fromtimestamp(float(ts))
             except Exception:
                 pass
-        # Correct for the one-hour offset
-        if ts_dt:
-            ts_dt -= timedelta(hours=1)
         rows.append({
             'Record ID': key,
             'Timestamp': ts_dt,
