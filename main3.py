@@ -266,18 +266,17 @@ def get_model_prediction(df_yolo, df_people, df_pico):
             else:
                 return None, "Missing timestamp information in one or more data sources", None
         
-        # Get the most recent timestamp as a reference point
-        latest_timestamps = [
-            df_yolo['Timestamp'].max(),
-            df_people['Timestamp'].max(),
-            df_pico['Timestamp'].max()
-        ]
-        reference_time = min(latest_timestamps)  # Use the earliest of the latest timestamps
+        # Use the most recent record from each sensor
+        yolo_record = df_yolo.sort_values('Timestamp', ascending=False).iloc[0]
+        people_record = df_people.sort_values('Timestamp', ascending=False).iloc[0]
+        pico_record = df_pico.sort_values('Timestamp', ascending=False).iloc[0]
         
-        # Find the closest timestamp in each dataframe to the reference time
-        yolo_record = df_yolo.iloc[(df_yolo['Timestamp'] - reference_time).abs().argsort()[0]]
-        people_record = df_people.iloc[(df_people['Timestamp'] - reference_time).abs().argsort()[0]]
-        pico_record = df_pico.iloc[(df_pico['Timestamp'] - reference_time).abs().argsort()[0]]
+        # The reference time is now the most recent of all three
+        reference_time = max([
+            yolo_record['Timestamp'],
+            people_record['Timestamp'],
+            pico_record['Timestamp']
+        ])
         
         # Get the values from the matched records
         depth_input = yolo_record.get('People Count', 0)
