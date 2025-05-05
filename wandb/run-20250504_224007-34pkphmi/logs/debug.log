@@ -1,0 +1,6 @@
+2025-05-04 22:40:07,507 INFO    MainThread:19210 [wandb_init.py:setup_run_log_directory():724] Logging user logs to /Users/janbol/Downloads/GitHub/hvac_rnn/wandb/run-20250504_224007-34pkphmi/logs/debug.log
+2025-05-04 22:40:07,507 INFO    MainThread:19210 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to /Users/janbol/Downloads/GitHub/hvac_rnn/wandb/run-20250504_224007-34pkphmi/logs/debug-internal.log
+2025-05-04 22:40:07,507 INFO    MainThread:19210 [wandb_init.py:monkeypatch_ipython():643] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x324e40d60>
+2025-05-04 22:40:07,507 INFO    MainThread:19210 [wandb_init.py:init():852] calling init triggers
+2025-05-04 22:40:07,507 INFO    MainThread:19210 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'activations': 'GELU', 'learning_rate': 0.001, 'max_lr': 0.004, 'pct_start': 0.1, 'optimizers': 'AdamW', 'scheduler': 'OneCycleLR', 'epochs': 25, 'batch_size': 32, 'weight_initialization': 'kaiming_normal', 'dropout': 0.2, '_wandb': {'code_path': 'code/ml.ipynb'}}

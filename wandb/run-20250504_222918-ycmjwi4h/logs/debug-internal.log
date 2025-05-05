@@ -1,0 +1,37 @@
+{"time":"2025-05-04T22:29:18.180188-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/Users/janbol/Downloads/GitHub/hvac_rnn/wandb/run-20250504_222918-ycmjwi4h/logs/debug-core.log"}
+{"time":"2025-05-04T22:29:18.421237-04:00","level":"INFO","msg":"created new stream","id":"ycmjwi4h"}
+{"time":"2025-05-04T22:29:18.421283-04:00","level":"INFO","msg":"stream: started","id":"ycmjwi4h"}
+{"time":"2025-05-04T22:29:18.421293-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"ycmjwi4h"}
+{"time":"2025-05-04T22:29:18.421309-04:00","level":"INFO","msg":"handler: started","stream_id":"ycmjwi4h"}
+{"time":"2025-05-04T22:29:18.421316-04:00","level":"INFO","msg":"sender: started","stream_id":"ycmjwi4h"}
+{"time":"2025-05-04T22:29:18.595324-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-04T22:29:18.605626-04:00","level":"ERROR","msg":"error generating diff","error":"no diff found"}
+{"time":"2025-05-04T22:29:18.620504-04:00","level":"ERROR","msg":"error generating diff","error":"no diff found"}
+{"time":"2025-05-04T22:29:21.983512-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:30:06.945496-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:31:01.182925-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:31:01.183895-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:31:02.579463-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:31:02.580376-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:31:03.460009-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:31:03.462324-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:31:04.957418-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:31:04.959056-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:31:06.60954-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:31:06.653731-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:31:11.527297-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:31:11.528633-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:31:15.159015-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:31:15.160031-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:31:15.334182-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:31:15.335181-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:31:19.048252-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:31:19.218001-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-04T22:31:19.21808-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-04T22:31:19.636708-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-04T22:31:19.815643-04:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-05-04T22:31:19.822485-04:00","level":"INFO","msg":"stream: closing","id":"ycmjwi4h"}
+{"time":"2025-05-04T22:31:19.822513-04:00","level":"INFO","msg":"handler: closed","stream_id":"ycmjwi4h"}
+{"time":"2025-05-04T22:31:19.82253-04:00","level":"INFO","msg":"sender: closed","stream_id":"ycmjwi4h"}
+{"time":"2025-05-04T22:31:19.82254-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ycmjwi4h"}
+{"time":"2025-05-04T22:31:19.822623-04:00","level":"INFO","msg":"stream: closed","id":"ycmjwi4h"}

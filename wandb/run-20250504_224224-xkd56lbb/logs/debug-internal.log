@@ -1,0 +1,27 @@
+{"time":"2025-05-04T22:42:24.052737-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/Users/janbol/Downloads/GitHub/hvac_rnn/wandb/run-20250504_224224-xkd56lbb/logs/debug-core.log"}
+{"time":"2025-05-04T22:42:24.289347-04:00","level":"INFO","msg":"created new stream","id":"xkd56lbb"}
+{"time":"2025-05-04T22:42:24.289373-04:00","level":"INFO","msg":"stream: started","id":"xkd56lbb"}
+{"time":"2025-05-04T22:42:24.289386-04:00","level":"INFO","msg":"handler: started","stream_id":"xkd56lbb"}
+{"time":"2025-05-04T22:42:24.289397-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"xkd56lbb"}
+{"time":"2025-05-04T22:42:24.289405-04:00","level":"INFO","msg":"sender: started","stream_id":"xkd56lbb"}
+{"time":"2025-05-04T22:42:24.455989-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-04T22:42:24.466748-04:00","level":"ERROR","msg":"error generating diff","error":"no diff found"}
+{"time":"2025-05-04T22:42:24.484555-04:00","level":"ERROR","msg":"error generating diff","error":"no diff found"}
+{"time":"2025-05-04T22:42:26.992107-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:43:44.313909-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:44:02.16578-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:44:02.167991-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:44:03.344911-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:44:03.347458-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:44:03.510311-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:44:03.527706-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-04T22:44:05.123165-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-04T22:44:05.262931-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-04T22:44:05.262996-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-04T22:44:05.645597-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-04T22:44:05.821937-04:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-05-04T22:44:05.829296-04:00","level":"INFO","msg":"stream: closing","id":"xkd56lbb"}
+{"time":"2025-05-04T22:44:05.829328-04:00","level":"INFO","msg":"handler: closed","stream_id":"xkd56lbb"}
+{"time":"2025-05-04T22:44:05.829348-04:00","level":"INFO","msg":"sender: closed","stream_id":"xkd56lbb"}
+{"time":"2025-05-04T22:44:05.829349-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"xkd56lbb"}
+{"time":"2025-05-04T22:44:05.829445-04:00","level":"INFO","msg":"stream: closed","id":"xkd56lbb"}

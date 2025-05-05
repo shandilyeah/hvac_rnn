@@ -1,0 +1,33 @@
+
+Epoch 1/20
+Training: 100%|██████████| 122/122 [00:05<00:00, 23.11it/s]
+Training: 100%|██████████| 122/122 [00:04<00:00, 25.48it/s] 
+Epoch 0/20
+	Train Loss 12.0614	 Learning Rate 0.0002800
+	Val Loss 11.6866
+
+Epoch 2/20
+Training: 100%|██████████| 122/122 [00:04<00:00, 25.79it/s] 
+Epoch 1/20
+	Train Loss 10.9988	 Learning Rate 0.0002803
+	Val Loss 18.2735
+
+Epoch 3/20
+Training: 100%|██████████| 122/122 [00:04<00:00, 25.48it/s] 
+Epoch 2/20
+	Train Loss 9.6688	 Learning Rate 0.0002811
+	Val Loss 9.0714
+
+Epoch 4/20
+Training: 100%|██████████| 122/122 [00:04<00:00, 25.33it/s] 
+Epoch 3/20
+	Train Loss 7.8709	 Learning Rate 0.0002825
+	Val Loss 99.0391
+
+Epoch 5/20
+Training:  25%|██▍       | 30/122 [00:01<00:03, 25.68it/s]  
+Epoch 4/20
+	Train Loss 5.8276	 Learning Rate 0.0002845
+	Val Loss 35.4160
+
+Epoch 6/20

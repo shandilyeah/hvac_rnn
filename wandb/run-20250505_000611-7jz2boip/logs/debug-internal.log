@@ -1,0 +1,21 @@
+{"time":"2025-05-05T00:06:11.103842-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/Users/janbol/Downloads/GitHub/hvac_rnn/wandb/run-20250505_000611-7jz2boip/logs/debug-core.log"}
+{"time":"2025-05-05T00:06:11.443823-04:00","level":"INFO","msg":"created new stream","id":"7jz2boip"}
+{"time":"2025-05-05T00:06:11.443859-04:00","level":"INFO","msg":"stream: started","id":"7jz2boip"}
+{"time":"2025-05-05T00:06:11.443869-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"7jz2boip"}
+{"time":"2025-05-05T00:06:11.443886-04:00","level":"INFO","msg":"handler: started","stream_id":"7jz2boip"}
+{"time":"2025-05-05T00:06:11.443895-04:00","level":"INFO","msg":"sender: started","stream_id":"7jz2boip"}
+{"time":"2025-05-05T00:06:11.579295-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-05T00:06:11.589745-04:00","level":"ERROR","msg":"error generating diff","error":"no diff found"}
+{"time":"2025-05-05T00:06:11.606534-04:00","level":"ERROR","msg":"error generating diff","error":"no diff found"}
+{"time":"2025-05-05T00:06:12.999491-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-05T00:06:36.055903-04:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-05-05T00:06:38.043873-04:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-05-05T00:06:38.191404-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-05T00:06:38.191441-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-05T00:06:38.608533-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-05T00:06:38.770413-04:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-05-05T00:06:38.774275-04:00","level":"INFO","msg":"stream: closing","id":"7jz2boip"}
+{"time":"2025-05-05T00:06:38.774293-04:00","level":"INFO","msg":"handler: closed","stream_id":"7jz2boip"}
+{"time":"2025-05-05T00:06:38.774303-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"7jz2boip"}
+{"time":"2025-05-05T00:06:38.774306-04:00","level":"INFO","msg":"sender: closed","stream_id":"7jz2boip"}
+{"time":"2025-05-05T00:06:38.774426-04:00","level":"INFO","msg":"stream: closed","id":"7jz2boip"}

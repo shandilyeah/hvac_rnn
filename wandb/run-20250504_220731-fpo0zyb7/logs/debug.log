@@ -1,0 +1,77 @@
+2025-05-04 22:07:31,739 INFO    MainThread:77133 [wandb_init.py:setup_run_log_directory():724] Logging user logs to /Users/janbol/Downloads/GitHub/hvac_rnn/wandb/run-20250504_220731-fpo0zyb7/logs/debug.log
+2025-05-04 22:07:31,739 INFO    MainThread:77133 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to /Users/janbol/Downloads/GitHub/hvac_rnn/wandb/run-20250504_220731-fpo0zyb7/logs/debug-internal.log
+2025-05-04 22:07:31,739 INFO    MainThread:77133 [wandb_init.py:monkeypatch_ipython():643] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x350c6cb20>
+2025-05-04 22:07:31,739 INFO    MainThread:77133 [wandb_init.py:init():852] calling init triggers
+2025-05-04 22:07:31,739 INFO    MainThread:77133 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'activations': 'GELU', 'learning_rate': 0.001, 'max_lr': 0.007, 'pct_start': 0.45, 'optimizers': 'AdamW', 'scheduler': 'OneCycleLR', 'epochs': 20, 'batch_size': 32, 'step_size': 2, 'weight_initialization': 'kaiming_normal', 'drop_pct': 0.07, '_wandb': {'code_path': 'code/ml.ipynb'}}
+2025-05-04 22:07:31,739 INFO    MainThread:77133 [wandb_init.py:init():893] starting backend
+2025-05-04 22:07:31,739 INFO    MainThread:77133 [wandb_init.py:init():897] sending inform_init request
+2025-05-04 22:07:31,740 INFO    MainThread:77133 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2025-05-04 22:07:31,740 INFO    MainThread:77133 [wandb_init.py:init():907] backend started and connected
+2025-05-04 22:07:31,741 INFO    MainThread:77133 [wandb_run.py:_label_probe_notebook():1369] probe notebook
+2025-05-04 22:07:31,741 INFO    MainThread:77133 [wandb_init.py:init():1002] updated telemetry
+2025-05-04 22:07:31,766 INFO    MainThread:77133 [wandb_init.py:init():1026] communicating run to backend with 90.0 second timeout
+2025-05-04 22:07:32,113 INFO    MainThread:77133 [wandb_init.py:init():1101] starting run threads in backend
+2025-05-04 22:07:32,203 INFO    MainThread:77133 [wandb_run.py:_console_start():2566] atexit reg
+2025-05-04 22:07:32,203 INFO    MainThread:77133 [wandb_run.py:_redirect():2414] redirect: wrap_raw
+2025-05-04 22:07:32,203 INFO    MainThread:77133 [wandb_run.py:_redirect():2483] Wrapping output streams.
+2025-05-04 22:07:32,204 INFO    MainThread:77133 [wandb_run.py:_redirect():2506] Redirects installed.
+2025-05-04 22:07:32,204 INFO    MainThread:77133 [wandb_init.py:init():1147] run started, returning control to user process
+2025-05-04 22:07:32,204 INFO    MainThread:77133 [wandb_init.py:_post_run_cell_hook():613] [no run ID] resuming backend
+2025-05-04 22:07:33,721 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] [no run ID] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:07:33,882 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():599] [no run ID] saved code: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:07:33,882 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():602] [no run ID] pausing backend
+2025-05-04 22:08:16,651 INFO    MainThread:77133 [wandb_init.py:_post_run_cell_hook():613] [no run ID] resuming backend
+2025-05-04 22:09:19,458 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] [no run ID] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:09:19,623 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():599] [no run ID] saved code: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:09:19,623 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():602] [no run ID] pausing backend
+2025-05-04 22:09:19,627 INFO    MainThread:77133 [wandb_init.py:_post_run_cell_hook():613] [no run ID] resuming backend
+2025-05-04 22:11:00,534 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] [no run ID] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:11:00,702 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():599] [no run ID] saved code: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:11:00,703 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():602] [no run ID] pausing backend
+2025-05-04 22:11:00,706 INFO    MainThread:77133 [wandb_init.py:_post_run_cell_hook():613] [no run ID] resuming backend
+2025-05-04 22:11:20,329 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] [no run ID] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:11:20,486 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():599] [no run ID] saved code: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:11:20,486 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():602] [no run ID] pausing backend
+2025-05-04 22:11:20,488 INFO    MainThread:77133 [wandb_init.py:_post_run_cell_hook():613] [no run ID] resuming backend
+2025-05-04 22:11:21,587 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] [no run ID] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:11:21,724 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():599] [no run ID] saved code: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:11:21,724 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():602] [no run ID] pausing backend
+2025-05-04 22:11:21,726 INFO    MainThread:77133 [wandb_init.py:_post_run_cell_hook():613] [no run ID] resuming backend
+2025-05-04 22:11:21,859 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] [no run ID] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:11:22,014 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():599] [no run ID] saved code: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:11:22,014 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():602] [no run ID] pausing backend
+2025-05-04 22:11:22,016 INFO    MainThread:77133 [wandb_init.py:_post_run_cell_hook():613] [no run ID] resuming backend
+2025-05-04 22:11:22,152 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] [no run ID] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:11:22,300 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():599] [no run ID] saved code: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:11:22,300 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():602] [no run ID] pausing backend
+2025-05-04 22:11:22,302 INFO    MainThread:77133 [wandb_init.py:_post_run_cell_hook():613] [no run ID] resuming backend
+2025-05-04 22:11:22,405 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] [no run ID] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:11:22,542 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():599] [no run ID] saved code: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:11:22,542 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():602] [no run ID] pausing backend
+2025-05-04 22:11:22,544 INFO    MainThread:77133 [wandb_init.py:_post_run_cell_hook():613] [no run ID] resuming backend
+2025-05-04 22:11:22,768 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] [no run ID] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:11:22,916 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():599] [no run ID] saved code: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:11:22,916 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():602] [no run ID] pausing backend
+2025-05-04 22:11:22,918 INFO    MainThread:77133 [wandb_init.py:_post_run_cell_hook():613] [no run ID] resuming backend
+2025-05-04 22:11:34,548 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] [no run ID] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:11:34,708 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():599] [no run ID] saved code: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:11:34,708 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():602] [no run ID] pausing backend
+2025-05-04 22:11:34,709 INFO    MainThread:77133 [wandb_init.py:_post_run_cell_hook():613] [no run ID] resuming backend
+2025-05-04 22:11:35,248 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] [no run ID] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:11:35,393 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():599] [no run ID] saved code: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:11:35,393 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():602] [no run ID] pausing backend
+2025-05-04 22:11:35,394 INFO    MainThread:77133 [wandb_init.py:_post_run_cell_hook():613] [no run ID] resuming backend
+2025-05-04 22:11:37,163 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] [no run ID] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:11:37,323 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():599] [no run ID] saved code: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:11:37,323 INFO    MainThread:77133 [wandb_init.py:_pre_run_cell_hook():602] [no run ID] pausing backend
+2025-05-04 22:11:37,324 INFO    MainThread:77133 [wandb_run.py:_finish():2314] finishing run janbol-carnegie-mellon-university/autonomous_project/fpo0zyb7
+2025-05-04 22:11:37,325 INFO    MainThread:77133 [jupyter.py:_save_ipynb():413] looking for notebook: /Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb
+2025-05-04 22:11:37,481 INFO    MainThread:77133 [wandb_init.py:_jupyter_teardown():627] saved code and history: <Artifact source-autonomous_project-_Users_janbol_Downloads_GitHub_hvac_rnn_ml.ipynb>
+2025-05-04 22:11:37,481 INFO    MainThread:77133 [wandb_init.py:_jupyter_teardown():628] cleaning up jupyter logic
+2025-05-04 22:11:37,481 INFO    MainThread:77133 [wandb_run.py:_atexit_cleanup():2531] got exitcode: 0
+2025-05-04 22:11:37,481 INFO    MainThread:77133 [wandb_run.py:_restore():2513] restore
+2025-05-04 22:11:37,481 INFO    MainThread:77133 [wandb_run.py:_restore():2519] restore done
+2025-05-04 22:11:38,769 INFO    MainThread:77133 [wandb_run.py:_footer_history_summary_info():4160] rendering history
+2025-05-04 22:11:38,770 INFO    MainThread:77133 [wandb_run.py:_footer_history_summary_info():4192] rendering summary
+2025-05-04 22:11:38,771 INFO    MainThread:77133 [wandb_run.py:_footer_sync_info():4121] logging synced files

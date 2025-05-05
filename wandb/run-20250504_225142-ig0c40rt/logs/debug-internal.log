@@ -1,0 +1,18 @@
+{"time":"2025-05-04T22:51:43.220515-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/Users/janbol/Downloads/GitHub/hvac_rnn/wandb/run-20250504_225142-ig0c40rt/logs/debug-core.log"}
+{"time":"2025-05-04T22:51:43.458415-04:00","level":"INFO","msg":"created new stream","id":"ig0c40rt"}
+{"time":"2025-05-04T22:51:43.45845-04:00","level":"INFO","msg":"stream: started","id":"ig0c40rt"}
+{"time":"2025-05-04T22:51:43.458463-04:00","level":"INFO","msg":"handler: started","stream_id":"ig0c40rt"}
+{"time":"2025-05-04T22:51:43.458463-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"ig0c40rt"}
+{"time":"2025-05-04T22:51:43.458514-04:00","level":"INFO","msg":"sender: started","stream_id":"ig0c40rt"}
+{"time":"2025-05-04T22:51:43.58766-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-04T22:51:43.598662-04:00","level":"ERROR","msg":"error generating diff","error":"no diff found"}
+{"time":"2025-05-04T22:51:43.615169-04:00","level":"ERROR","msg":"error generating diff","error":"no diff found"}
+{"time":"2025-05-04T22:53:32.626761-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-04T22:53:32.62685-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-04T22:53:33.179793-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-04T22:53:33.336812-04:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-05-04T22:53:33.34121-04:00","level":"INFO","msg":"stream: closing","id":"ig0c40rt"}
+{"time":"2025-05-04T22:53:33.341227-04:00","level":"INFO","msg":"handler: closed","stream_id":"ig0c40rt"}
+{"time":"2025-05-04T22:53:33.341239-04:00","level":"INFO","msg":"sender: closed","stream_id":"ig0c40rt"}
+{"time":"2025-05-04T22:53:33.341237-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ig0c40rt"}
+{"time":"2025-05-04T22:53:33.341403-04:00","level":"INFO","msg":"stream: closed","id":"ig0c40rt"}

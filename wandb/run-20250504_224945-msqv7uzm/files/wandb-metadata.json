@@ -1,0 +1,44 @@
+{
+  "os": "macOS-15.4.1-arm64-arm-64bit",
+  "python": "CPython 3.10.16",
+  "startedAt": "2025-05-05T02:49:45.381043Z",
+  "program": "/Users/janbol/Downloads/GitHub/hvac_rnn/ml.ipynb",
+  "codePath": "ml.ipynb",
+  "git": {
+    "remote": "https://github.com/jjanbol/hvac_rnn.git",
+    "commit": "e20ae139cb3bd48fd7f5660e3ff9c274b03f26c7"
+  },
+  "email": "jjangaby@andrew.cmu.edu",
+  "root": "/Users/janbol/Downloads/GitHub/hvac_rnn",
+  "host": "Janbols-MacBook-Pro-2.local",
+  "executable": "/opt/anaconda3/envs/auto/bin/python",
+  "codePathLocal": "ml.ipynb",
+  "cpu_count": 16,
+  "cpu_count_logical": 16,
+  "disk": {
+    "/": {
+      "total": "994662584320",
+      "used": "373878521856"
+    },
+    "/System/Volumes/Data": {
+      "total": "994662584320",
+      "used": "373878521856"
+    }
+  },
+  "memory": {
+    "total": "51539607552"
+  },
+  "cpu": {
+    "count": 16,
+    "countLogical": 16
+  },
+  "apple": {
+    "name": "Apple M3 Max",
+    "ecpuCores": 4,
+    "pcpuCores": 12,
+    "gpuCores": 40,
+    "memoryGb": 48,
+    "swapTotalBytes": "2147483648",
+    "ramTotalBytes": "51539607552"
+  }
+}

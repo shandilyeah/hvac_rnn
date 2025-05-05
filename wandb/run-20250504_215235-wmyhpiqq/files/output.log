@@ -1,0 +1,485 @@
+
+Epoch 1/20
+
+Epoch 1/20
+
+Epoch 1/20
+Training:   0%|          | 0/122 [00:00<?, ?it/s]
+
+Epoch 1/20
+Training:   0%|          | 0/122 [00:00<?, ?it/s]
+
+Epoch 1/20
+Training:   0%|          | 0/122 [00:00<?, ?it/s]
+
+Epoch 1/20
+Training:   0%|          | 0/122 [00:00<?, ?it/s]
+torch.Size([32])
+
+Epoch 1/20
+Training:   0%|          | 0/122 [00:00<?, ?it/s]
+torch.Size([32])
+(5569,)
+32
+----------------------------------------------------------------------------------------------------
+Layer                   Kernel Shape         Output Shape         # Params (K)      # Mult-Adds (M)
+====================================================================================================
+0_Linear                     [3, 20]             [32, 20]                 0.08                 0.00
+1_ReLU                             -             [32, 20]                    -                    -
+2_Linear                    [20, 20]             [32, 20]                 0.42                 0.00
+3_ReLU                             -             [32, 20]                    -                    -
+4_Linear                    [20, 20]             [32, 20]                 0.42                 0.00
+5_ReLU                             -             [32, 20]                    -                    -
+6_Linear                    [20, 20]             [32, 20]                 0.42                 0.00
+7_ReLU                             -             [32, 20]                    -                    -
+8_Linear                    [20, 20]             [32, 20]                 0.42                 0.00
+9_ReLU                             -             [32, 20]                    -                    -
+10_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+11_ReLU                            -             [32, 20]                    -                    -
+12_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+13_ReLU                            -             [32, 20]                    -                    -
+14_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+15_ReLU                            -             [32, 20]                    -                    -
+16_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+17_ReLU                            -             [32, 20]                    -                    -
+18_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+19_ReLU                            -             [32, 20]                    -                    -
+20_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+21_ReLU                            -             [32, 20]                    -                    -
+22_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+23_ReLU                            -             [32, 20]                    -                    -
+24_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+25_ReLU                            -             [32, 20]                    -                    -
+26_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+27_ReLU                            -             [32, 20]                    -                    -
+28_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+29_ReLU                            -             [32, 20]                    -                    -
+30_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+31_ReLU                            -             [32, 20]                    -                    -
+32_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+33_ReLU                            -             [32, 20]                    -                    -
+34_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+35_ReLU                            -             [32, 20]                    -                    -
+36_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+37_ReLU                            -             [32, 20]                    -                    -
+38_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+39_ReLU                            -             [32, 20]                    -                    -
+40_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+41_ReLU                            -             [32, 20]                    -                    -
+42_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+43_ReLU                            -             [32, 20]                    -                    -
+44_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+45_ReLU                            -             [32, 20]                    -                    -
+46_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+47_ReLU                            -             [32, 20]                    -                    -
+48_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+49_ReLU                            -             [32, 20]                    -                    -
+50_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+51_ReLU                            -             [32, 20]                    -                    -
+52_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+53_ReLU                            -             [32, 20]                    -                    -
+54_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+55_ReLU                            -             [32, 20]                    -                    -
+56_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+57_ReLU                            -             [32, 20]                    -                    -
+58_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+59_ReLU                            -             [32, 20]                    -                    -
+60_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+61_ReLU                            -             [32, 20]                    -                    -
+62_Linear                    [20, 1]              [32, 1]                 0.02                 0.00
+====================================================================================================
+# Params:    12.70K
+# Mult-Adds: 0.01M
+----------------------------------------------------------------------------------------------------
+
+Epoch 1/20
+Training:   0%|          | 0/122 [00:00<?, ?it/s]
+torch.Size([32])
+(5569,)
+
+Epoch 1/20
+Training:   0%|          | 0/122 [00:00<?, ?it/s]
+torch.Size([32])
+(5569,)
+
+Epoch 1/20
+Training:   0%|          | 0/122 [00:00<?, ?it/s]
+torch.Size([32])
+(5569,)
+MPS backend is available!
+32
+----------------------------------------------------------------------------------------------------
+Layer                   Kernel Shape         Output Shape         # Params (K)      # Mult-Adds (M)
+====================================================================================================
+0_Linear                     [3, 20]             [32, 20]                 0.08                 0.00
+1_ReLU                             -             [32, 20]                    -                    -
+2_Linear                    [20, 20]             [32, 20]                 0.42                 0.00
+3_ReLU                             -             [32, 20]                    -                    -
+4_Linear                    [20, 20]             [32, 20]                 0.42                 0.00
+5_ReLU                             -             [32, 20]                    -                    -
+6_Linear                    [20, 20]             [32, 20]                 0.42                 0.00
+7_ReLU                             -             [32, 20]                    -                    -
+8_Linear                    [20, 20]             [32, 20]                 0.42                 0.00
+9_ReLU                             -             [32, 20]                    -                    -
+10_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+11_ReLU                            -             [32, 20]                    -                    -
+12_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+13_ReLU                            -             [32, 20]                    -                    -
+14_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+15_ReLU                            -             [32, 20]                    -                    -
+16_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+17_ReLU                            -             [32, 20]                    -                    -
+18_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+19_ReLU                            -             [32, 20]                    -                    -
+20_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+21_ReLU                            -             [32, 20]                    -                    -
+22_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+23_ReLU                            -             [32, 20]                    -                    -
+24_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+25_ReLU                            -             [32, 20]                    -                    -
+26_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+27_ReLU                            -             [32, 20]                    -                    -
+28_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+29_ReLU                            -             [32, 20]                    -                    -
+30_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+31_ReLU                            -             [32, 20]                    -                    -
+32_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+33_ReLU                            -             [32, 20]                    -                    -
+34_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+35_ReLU                            -             [32, 20]                    -                    -
+36_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+37_ReLU                            -             [32, 20]                    -                    -
+38_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+39_ReLU                            -             [32, 20]                    -                    -
+40_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+41_ReLU                            -             [32, 20]                    -                    -
+42_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+43_ReLU                            -             [32, 20]                    -                    -
+44_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+45_ReLU                            -             [32, 20]                    -                    -
+46_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+47_ReLU                            -             [32, 20]                    -                    -
+48_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+49_ReLU                            -             [32, 20]                    -                    -
+50_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+51_ReLU                            -             [32, 20]                    -                    -
+52_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+53_ReLU                            -             [32, 20]                    -                    -
+54_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+55_ReLU                            -             [32, 20]                    -                    -
+56_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+57_ReLU                            -             [32, 20]                    -                    -
+58_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+59_ReLU                            -             [32, 20]                    -                    -
+60_Linear                   [20, 20]             [32, 20]                 0.42                 0.00
+61_ReLU                            -             [32, 20]                    -                    -
+62_Linear                    [20, 1]              [32, 1]                 0.02                 0.00
+====================================================================================================
+# Params:    12.70K
+# Mult-Adds: 0.01M
+----------------------------------------------------------------------------------------------------
+
+Epoch 1/20
+
+
+Training:   0%|          | 0/122 [00:00<?, ?it/s]
+torch.Size([32])
+torch.Size([32, 1])
+
+Training:  11%|█         | 13/122 [00:01<00:08, 13.62it/s]
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([32])
+torch.Size([32, 1])
+torch.Size([26])
+torch.Size([26, 1])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([32, 1])
+target shape: torch.Size([32])
+logits shape: torch.Size([3, 1])
+target shape: torch.Size([3])
